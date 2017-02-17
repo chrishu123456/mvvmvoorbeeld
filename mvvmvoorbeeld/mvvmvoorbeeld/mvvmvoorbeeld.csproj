@@ -75,7 +75,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Model\TekstMetOpmaak.cs" />
     <Compile Include="ViewModel\Converters.cs" />
+    <Compile Include="ViewModel\TekstMetOpmaakVM.cs" />
     <Compile Include="View\TextBoxView.xaml.cs">
       <DependentUpon>TextBoxView.xaml</DependentUpon>
     </Compile>
@@ -116,9 +118,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Model\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
