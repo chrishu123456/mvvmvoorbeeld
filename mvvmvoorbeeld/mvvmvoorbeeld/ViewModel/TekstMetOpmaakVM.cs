@@ -13,7 +13,7 @@ namespace MVVMVoorbeeld.ViewModel
 {
     public class TekstMetOpmaakVM : ViewModelBase
     {
-        private MVVMVoorbeeld.Model.TekstMetOpmaak opgemaakteTekst;
+        private Model.TekstMetOpmaak opgemaakteTekst;
 
         public string Inhoud
         {

@@ -24,10 +24,10 @@
         <StackPanel HorizontalAlignment="Center" Width="100">
             <ToggleButton Name="ButtonBold" Content="Bold" Margin="10" IsChecked="{Binding Vet}"></ToggleButton>
             <ToggleButton Name="ButtonItalic" Content="Italic" Margin="10" IsChecked="{Binding Schuin}"></ToggleButton>
-            <Button Content="Nieuw" Margin="10,30,10,10" Command="{Binding NieuweTextBox}"></Button>
-            <Button Content="Openen" Margin="10" Command="{Binding OpenenBestand}"></Button>
-            <Button Content="Opslaan" Margin="10" Command="{Binding OpslaanBestand}"></Button>
-            <Button Content="Afsluiten" Margin="10,30,10,10" Command="{Binding AfsluitenTextBox}"></Button>
+            <Button Content="Nieuw" Margin="10,30,10,10" Command="{Binding NieuwCommand}"></Button>
+            <Button Content="Openen" Margin="10" Command="{Binding OpenCommand}"></Button>
+            <Button Content="Opslaan" Margin="10" Command="{Binding OpslaanCommand}"></Button>
+            <Button Content="Afsluiten" Margin="10,30,10,10" Command="{Binding AfsluitenCommand}"></Button>
         </StackPanel>
     </StackPanel>
 </Window>
