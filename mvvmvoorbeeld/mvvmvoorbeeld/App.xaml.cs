@@ -6,12 +6,21 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
 
-namespace mvvmvoorbeeld
+namespace MVVMVoorbeeld
 {
     /// <summary>
     /// Interaction logic for App.xaml
     /// </summary>
     public partial class App : Application
     {
+        protected override void OnStartup(StartupEventArgs e)
+        {
+            base.OnStartup(e);
+            Model.TekstMetOpmaak mijnTekst = new Model.TekstMetOpmaak();
+            ViewModel.TekstMetOpmaakVM mijnviewmodel = new ViewModel.TekstMetOpmaakVM(mijnTekst);
+            View.TextBoxView mijnTekstBoxView = new View.TextBoxView();
+
+            mijnTekstBoxView.DataContext = mijnviewmodel;
+        }
     }
 }

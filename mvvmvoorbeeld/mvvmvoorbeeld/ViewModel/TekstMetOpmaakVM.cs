@@ -9,11 +9,11 @@ using Microsoft.Win32;
 using System.IO;
 using System.Windows;
 
-namespace mvvmvoorbeeld.ViewModel
+namespace MVVMVoorbeeld.ViewModel
 {
     public class TekstMetOpmaakVM : ViewModelBase
     {
-        private mvvmvoorbeeld.Model.TekstMetOpmaak opgemaakteTekst;
+        private MVVMVoorbeeld.Model.TekstMetOpmaak opgemaakteTekst;
 
         public string Inhoud
         {
@@ -51,16 +51,10 @@ namespace mvvmvoorbeeld.ViewModel
         }
 
 
-
-
-        private RelayCommand opslaanCommandValue;
-
         public RelayCommand OpslaanCommand
         {
             get { return new RelayCommand(OpslaanBestand); }
         }
-
-        private RelayCommand openCommandValue;
 
         public RelayCommand OpenCommand
         {
@@ -68,11 +62,15 @@ namespace mvvmvoorbeeld.ViewModel
 
         }
 
-        private RelayCommand afluitenCommandValue;
-
         public RelayCommand AfsluitenCommand
         {
             get { return new RelayCommand(AfsluitenTextBox); }
+        }
+
+
+        public RelayCommand<ConsoleCancelEventArgs> ClosingCommand
+        {
+            get { return new RelayCommand<ConsoleCancelEventArgs>(OnWindowClosing); }
         }
 
 
@@ -140,11 +138,18 @@ namespace mvvmvoorbeeld.ViewModel
             Application.Current.MainWindow.Close();
         }
 
+        public void OnWindowClosing(ConsoleCancelEventArgs e)
+        {
+            if (MessageBox.Show("Afsluiten", "Wil u het programma sluiten ? ",MessageBoxButton.YesNo, MessageBoxImage.Question, MessageBoxResult.No) == (MessageBoxResult.No))
+            {
+                e.Cancel = true;
+            }
+        }
+
         public TekstMetOpmaakVM(Model.TekstMetOpmaak opgemaaktetekst)
         {
             this.opgemaakteTekst = opgemaaktetekst;
         }
-
-
+        
     }
 }
